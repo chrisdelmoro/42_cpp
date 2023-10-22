@@ -6,11 +6,12 @@
 /*   By: ccamargo <ccamargo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 13:07:02 by ccamargo          #+#    #+#             */
-/*   Updated: 2023/10/21 18:02:16 by ccamargo         ###   ########.fr       */
+/*   Updated: 2023/10/21 19:33:29 by ccamargo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "contact.hpp"
+#include "phonebook.hpp"
 
 Contact handle_add(void)
 {
@@ -69,15 +70,16 @@ Contact handle_add(void)
 	return contact;
 }
 
-void handle_search(void)
+void handle_search(PhoneBook phonebook)
 {
-	std::cout << "SEARCHING! SEARCHING!" << std::endl;
+	phonebook.displayContacts();
 }
 
 int main(void)
 {
 	std::string command = "";
 	Contact test;
+	PhoneBook phonebook;
 
 	std::cout << "Welcome to the awesome crappy phonebook!" << std::endl;
 	std::cout << "You can ADD contacts (up to eight) and also SEARCH for en existing contact!" << std::endl;
@@ -94,10 +96,10 @@ int main(void)
 		if (command == "ADD")
 		{
 			test = handle_add();
-			std::cout << test.getFirstName() << std::endl;
+			phonebook.addContact(test);
 		}
 		if (command == "SEARCH")
-			handle_search();
+			handle_search(phonebook);
 	}
 	return 0;
 }
