@@ -6,66 +6,45 @@
 /*   By: ccamargo <ccamargo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 13:07:02 by ccamargo          #+#    #+#             */
-/*   Updated: 2023/10/21 19:33:29 by ccamargo         ###   ########.fr       */
+/*   Updated: 2023/10/22 19:46:30 by ccamargo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "contact.hpp"
 #include "phonebook.hpp"
 
+std::string validate_input(std::string msg)
+{
+	std::string buffer = "";
+	bool flag = 0;
+
+	while (buffer == "")
+	{
+		std::cout << msg;
+		std::getline(std::cin, buffer);
+		for (size_t i = 0; i < buffer.length(); i++)
+        {
+            if(!std::isspace(static_cast<unsigned char>(buffer[i])))
+				flag = 1;
+        }
+		if (flag == 0 || buffer == "")
+		{
+			std::cout << EMPTY_FIELD << std::endl;
+			buffer = "";
+		}
+    }
+	return buffer;
+}
+
 Contact handle_add(void)
 {
 	Contact contact;
-	std::string buffer = "";
 
-	while (buffer == "")
-	{
-		std::cout << "Enter contact first name >> ";
-		std::getline(std::cin, buffer);
-		if (buffer == "")
-			std::cout << EMPTY_FIELD << std::endl;
-	}
-	contact.setFirstName(buffer);
-
-	buffer = "";
-	while (buffer == "")
-	{
-		std::cout << "Enter contact last name >> ";
-		std::getline(std::cin, buffer);
-		if (buffer == "")
-			std::cout << EMPTY_FIELD << std::endl;
-	}
-	contact.setLastName(buffer);
-
-	buffer = "";
-	while (buffer == "")
-	{
-		std::cout << "Enter contact nickname >> ";
-		std::getline(std::cin, buffer);
-		if (buffer == "")
-			std::cout << EMPTY_FIELD << std::endl;
-	}
-	contact.setNickname(buffer);
-
-	buffer = "";
-	while (buffer == "")
-	{
-		std::cout << "Enter contact phone number >> ";
-		std::getline(std::cin, buffer);
-		if (buffer == "")
-			std::cout << EMPTY_FIELD << std::endl;
-	}
-	contact.setPhone(buffer);
-
-	buffer = "";
-	while (buffer == "")
-	{
-		std::cout << "Enter contact darkest secret >> ";
-		std::getline(std::cin, buffer);
-		if (buffer == "")
-			std::cout << EMPTY_FIELD << std::endl;
-	}
-	contact.setSecret(buffer);
+	contact.setFirstName(validate_input("Enter contact's first name >> "));
+	contact.setLastName(validate_input("Enter contact's last name >> "));
+	contact.setNickname(validate_input("Enter contact's nickname >> "));
+	contact.setPhone(validate_input("Enter contact's phone number >> "));
+	contact.setSecret(validate_input("Enter contact's darkest secret >> "));
 
 	return contact;
 }
@@ -94,10 +73,7 @@ int main(void)
 			continue;
 		}
 		if (command == "ADD")
-		{
-			test = handle_add();
-			phonebook.addContact(test);
-		}
+			phonebook.addContact(handle_add());
 		if (command == "SEARCH")
 			handle_search(phonebook);
 	}
