@@ -6,7 +6,7 @@
 /*   By: ccamargo <ccamargo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 18:58:47 by ccamargo          #+#    #+#             */
-/*   Updated: 2023/10/22 16:26:16 by ccamargo         ###   ########.fr       */
+/*   Updated: 2023/10/22 17:28:40 by ccamargo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,11 @@ void PhoneBook::displayContacts(void)
 	{
 		std::cout << "Type the index of the contact you wish to access >> ";
 		std::cin >> index_choise;
+		if (std::cin.fail())
+		{
+    		std::cin.clear();
+   			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		}
 		index_choise--;
 		if ((index_choise >= 0 && index_choise <= 7) && phonebook[index_choise].getIndex() != -1)
 		{
@@ -79,6 +84,7 @@ void PhoneBook::displayContacts(void)
 		else
 		{
 			std::cout << "Contact with that index does not exist!" << std::endl;
+			index_choise = -1;
 		}
 	}
 }

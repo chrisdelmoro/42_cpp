@@ -6,7 +6,7 @@
 /*   By: ccamargo <ccamargo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 18:54:43 by ccamargo          #+#    #+#             */
-/*   Updated: 2023/10/22 16:19:17 by ccamargo         ###   ########.fr       */
+/*   Updated: 2023/10/22 17:25:24 by ccamargo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PHONEBOOK_HPP
 
 # include <iomanip>
+# include <limits>
 # include "contact.hpp"
 
 class PhoneBook
