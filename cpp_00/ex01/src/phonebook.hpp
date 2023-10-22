@@ -6,7 +6,7 @@
 /*   By: ccamargo <ccamargo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 18:54:43 by ccamargo          #+#    #+#             */
-/*   Updated: 2023/10/21 20:55:24 by ccamargo         ###   ########.fr       */
+/*   Updated: 2023/10/22 16:19:17 by ccamargo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ class PhoneBook
 	private:
 		Contact phonebook[8];
 		int		oldest;
+
+		std::string trumcateField(std::string field);
 
 	public:
 		PhoneBook(void);
