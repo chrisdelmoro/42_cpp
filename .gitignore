@@ -34,3 +34,5 @@
 /bin/
 megaphone
 phonebook
+account
+*.log

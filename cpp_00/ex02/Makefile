@@ -1,4 +1,4 @@
-NAME			= phonebook
+NAME			= account
 
 SRC_DIR			= ./src/
 SRC				=	*.cpp
@@ -17,14 +17,14 @@ FLAGS	= 		-Wall -Wextra -Werror -std=c++98
 all: $(BINARY_OUT)
 
 $(BINARY_OUT): $(SRC_PATH)
-	@ echo "Compiling phonebook..."
+	@ echo "Compiling account..."
 	@ $(COMPILE) $(FLAGS) -c $(SRC_PATH)
 	@ mkdir -p obj
 	@ mv $(OBJ) $(OBJ_PATH)
 	@ mkdir -p $(BIN)
 	@ $(COMPILE) $(FLAGS) $(OBJECTS) -o $(NAME)
 	@ mv $(NAME) $(BIN)
-	@ echo "Phonebook compiled successfully!"
+	@ echo "Account compiled successfully!"
 
 
 clean:
@@ -35,7 +35,7 @@ clean:
 fclean: clean
 	@ rm -f $(BINARY_OUT)
 	@ rm -rf $(BIN)
-	@ echo "Phonebook binary erased successfully!"
+	@ echo "Account binary erased successfully!"
 
 re: fclean all
 
