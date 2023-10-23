@@ -36,3 +36,4 @@ megaphone
 phonebook
 account
 *.log
+.vscode

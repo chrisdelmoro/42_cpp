@@ -6,7 +6,7 @@
 /*   By: ccamargo <ccamargo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 18:58:47 by ccamargo          #+#    #+#             */
-/*   Updated: 2023/10/22 19:46:06 by ccamargo         ###   ########.fr       */
+/*   Updated: 2023/10/23 11:05:30 by ccamargo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,4 +87,6 @@ void PhoneBook::displayContacts(void)
 			index_choise = -1;
 		}
 	}
+	std::cin.clear();
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
