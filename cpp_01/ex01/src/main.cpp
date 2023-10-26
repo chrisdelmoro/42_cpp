@@ -6,7 +6,7 @@
 /*   By: ccamargo <ccamargo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 17:44:40 by ccamargo          #+#    #+#             */
-/*   Updated: 2023/10/25 19:08:11 by ccamargo         ###   ########.fr       */
+/*   Updated: 2023/10/25 20:31:19 by ccamargo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,16 @@
 
 int main(void)
 {
-	randomChump("Stack Zombie");
+	int hordeSize = 10;
+	std::string zombieName = "Rick";
+	Zombie* horde = zombieHorde(hordeSize, zombieName);
 
-	Zombie* heapZombie = newZombie("Heap Zombie");
-	heapZombie->announce();
-	delete heapZombie;
+	for (int i = 0; i < hordeSize; i++)
+	{
+		horde[i].announce();
+	}
+
+	delete[] horde;
 
 	return 0;
 }

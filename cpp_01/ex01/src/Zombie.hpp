@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombie.hpp                                         :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccamargo <ccamargo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 17:32:36 by ccamargo          #+#    #+#             */
-/*   Updated: 2023/10/25 19:04:27 by ccamargo         ###   ########.fr       */
+/*   Updated: 2023/10/25 20:19:58 by ccamargo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ class Zombie
 		std::string name;
 
 	public:
-		Zombie(std::string name);
+		Zombie();
 		~Zombie();
 
 		void announce( void );
+		void setName(std::string name);
 };
 
-Zombie* newZombie( std::string name );
-void randomChump(std::string name);
+Zombie* zombieHorde( int N, std::string name );
 
 #endif

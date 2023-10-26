@@ -1,4 +1,4 @@
-NAME			= moar_brainz
+NAME			= brainz
 
 SRC_DIR			= ./src/
 SRC				=	*.cpp
@@ -17,14 +17,14 @@ FLAGS	= 		-Wall -Wextra -Werror -std=c++98
 all: $(BINARY_OUT)
 
 $(BINARY_OUT): $(SRC_PATH)
-	@ echo "Compiling moar_brainz..."
+	@ echo "Compiling brainz..."
 	@ $(COMPILE) $(FLAGS) -c $(SRC_PATH)
 	@ mkdir -p obj
 	@ mv $(OBJ) $(OBJ_PATH)
 	@ mkdir -p $(BIN)
 	@ $(COMPILE) $(FLAGS) $(OBJECTS) -o $(NAME)
 	@ mv $(NAME) $(BIN)
-	@ echo "Moar_Brainz compiled successfully!"
+	@ echo "Brainz compiled successfully!"
 
 
 clean:
@@ -35,7 +35,7 @@ clean:
 fclean: clean
 	@ rm -f $(BINARY_OUT)
 	@ rm -rf $(BIN)
-	@ echo "Moar_Brainz binary erased successfully!"
+	@ echo "Brainz binary erased successfully!"
 
 re: fclean all
 
