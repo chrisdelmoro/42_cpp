@@ -6,7 +6,7 @@
 /*   By: ccamargo <ccamargo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 22:01:27 by ccamargo          #+#    #+#             */
-/*   Updated: 2023/10/31 22:30:01 by ccamargo         ###   ########.fr       */
+/*   Updated: 2023/11/01 19:24:00 by ccamargo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,11 @@ void	Harl::error(void)
 
 void	Harl::complain(std::string level)
 {
-	void		(Harl::*f[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+	void (Harl::*funcPtr[4])( void ) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 	std::string	levels[4] = {"debug", "info", "warning", "error"};
-	for (size_t i = 0; i < 4; i++)
+	for (int i = 0; i < 4; i++)
 	{
 		if (levels[i] == level)
-			(this->*f[i])();
+			(this->*funcPtr[i])();
 	}
 }
