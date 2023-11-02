@@ -6,26 +6,14 @@
 /*   By: ccamargo <ccamargo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 20:00:11 by ccamargo          #+#    #+#             */
-/*   Updated: 2023/10/31 19:42:32 by ccamargo         ###   ########.fr       */
+/*   Updated: 2023/11/02 19:48:28 by ccamargo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <fstream>
 
-std::string	replace(std::string lineRead,std::string s1, std::string s2)
-{
-	size_t	position;
-
-    position = lineRead.find(s1);
-    if (position == std::string::npos)
-        return (lineRead);
-    lineRead.erase(position, s1.length());
-    lineRead.insert(position, s2);
-	return (lineRead);
-}
-
-int main(int argc, char const *argv[])
+int main(int argc, char *argv[])
 {
 	std::ifstream	inputFile;
 	std::ofstream	outputFile;
@@ -40,12 +28,14 @@ int main(int argc, char const *argv[])
         std::cout << "A string to replace the original one." << std::endl;
 		return 1;
 	}
+
 	inputFile.open(argv[1], std::ios::in);
 	if (!inputFile)
 	{
 		std::cout << "Error when opening file " << argv[1] << "." << std::endl;
 		return 1;
 	}
+
 	outFileName.append(argv[1]);
 	outFileName.append(".replace");
 	outputFile.open(outFileName.c_str(), std::ios::out);
@@ -54,13 +44,26 @@ int main(int argc, char const *argv[])
 		std::cout << "Error when creating file " << argv[1] << "." << std::endl;
 		return 1;
 	}
-	while (inputFile)
+
+	size_t pos;
+	size_t found;
+	size_t s1_len = std::string(argv[2]).length();
+
+	while (getline(inputFile, lineRead))
 	{
-		std::getline(inputFile, lineRead);
-		outputFile << replace(lineRead, argv[2], argv[3]);
-		if (lineRead != "")
-			outputFile << std::endl;
+		pos = 0;
+		found = lineRead.find(argv[2]);
+		while (found != std::string::npos)
+		{
+			outputFile << lineRead.substr(pos, found - pos) << argv[3];
+			pos = found + s1_len;
+			found = lineRead.find(argv[2], pos);
+		}
+		outputFile << lineRead.substr(pos);
+		if (inputFile.eof() == false)
+			outputFile << "\n";
 	}
+
 	inputFile.close();
 	outputFile.close();
 	return 0;
