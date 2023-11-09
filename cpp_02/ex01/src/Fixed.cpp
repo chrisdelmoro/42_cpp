@@ -6,7 +6,7 @@
 /*   By: ccamargo <ccamargo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 18:07:25 by ccamargo          #+#    #+#             */
-/*   Updated: 2023/11/09 19:43:29 by ccamargo         ###   ########.fr       */
+/*   Updated: 2023/11/09 19:42:28 by ccamargo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,20 @@ Fixed::Fixed() : number(0)
 {
 	std::cout << "Default constructor called" << std::endl;
 }
+
+Fixed::Fixed( const int int_number )
+{
+	std::cout << "Int constructor called" << std::endl;
+	this->number = int_number << this->fract_bits;
+}
+
+Fixed::Fixed( const float float_number )
+{
+	std::cout << "Float constructor called" << std::endl;
+	this->number = roundf(float_number * (1 << this->fract_bits));
+}
+
+
 
 Fixed::Fixed( const Fixed& original )
 {
@@ -33,10 +47,14 @@ Fixed& Fixed::operator=(const Fixed& original)
 	return *this;
 }
 
+
+
 Fixed::~Fixed()
 {
 	std::cout << "Destructor called" << std::endl;
 }
+
+
 
 int Fixed::getRawBits( void ) const
 {
@@ -47,4 +65,22 @@ int Fixed::getRawBits( void ) const
 void Fixed::setRawBits( int const raw )
 {
 	this->number = raw;
+}
+
+float	Fixed::toFloat() const
+{
+	return ((float)number / (float)(1 << fract_bits));
+}
+
+int	Fixed::toInt() const
+{
+	return number >> fract_bits;
+}
+
+
+
+std::ostream& operator<<(std::ostream& out, const Fixed& value)
+{
+	out << value.toFloat();
+	return out;
 }
