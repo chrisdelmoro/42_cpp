@@ -6,7 +6,7 @@
 /*   By: ccamargo <ccamargo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 18:07:25 by ccamargo          #+#    #+#             */
-/*   Updated: 2023/11/09 19:42:28 by ccamargo         ###   ########.fr       */
+/*   Updated: 2023/11/09 19:44:49 by ccamargo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,8 @@ int	Fixed::toInt() const
 
 
 
-std::ostream& operator<<(std::ostream& out, const Fixed& value)
+std::ostream& operator<<(std::ostream& out, const Fixed& fixed)
 {
-	out << value.toFloat();
+	out << fixed.toFloat();
 	return out;
 }
