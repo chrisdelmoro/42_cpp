@@ -6,7 +6,7 @@
 /*   By: ccamargo <ccamargo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 16:01:15 by ccamargo          #+#    #+#             */
-/*   Updated: 2023/11/14 18:47:01 by ccamargo         ###   ########.fr       */
+/*   Updated: 2023/11/14 18:49:12 by ccamargo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 class ClapTrap
 {
-private:
+protected:
 	std::string Name;
 	int HitPoints;
 	int EnergyPoints;
