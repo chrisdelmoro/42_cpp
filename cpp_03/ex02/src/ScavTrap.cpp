@@ -6,7 +6,7 @@
 /*   By: ccamargo <ccamargo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 17:41:14 by ccamargo          #+#    #+#             */
-/*   Updated: 2023/11/15 19:02:55 by ccamargo         ###   ########.fr       */
+/*   Updated: 2023/11/15 19:02:06 by ccamargo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,6 @@ void ScavTrap::guardGate()
 	}
 	else
 	{
-		std::cout << "ScavTrap " << Name << " has no hit points or energy points left to enter Gate Keeper mode. :/" << std::endl;
+		std::cout << "ScavTrap " << Name << " has no hit points or energy points left to enter Gate Keep mode. :/" << std::endl;
 	}
 }
