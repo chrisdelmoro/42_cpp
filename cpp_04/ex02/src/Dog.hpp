@@ -6,14 +6,14 @@
 /*   By: ccamargo <ccamargo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 15:47:06 by ccamargo          #+#    #+#             */
-/*   Updated: 2023/11/22 18:20:42 by ccamargo         ###   ########.fr       */
+/*   Updated: 2023/11/22 19:01:35 by ccamargo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DOG_HPP
 # define DOG_HPP
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Brain.hpp"
 
 class Dog : public Animal

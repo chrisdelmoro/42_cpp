@@ -6,11 +6,11 @@
 /*   By: ccamargo <ccamargo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 16:00:40 by ccamargo          #+#    #+#             */
-/*   Updated: 2023/11/22 18:59:21 by ccamargo         ###   ########.fr       */
+/*   Updated: 2023/11/22 19:07:28 by ccamargo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
 
@@ -33,12 +33,6 @@ int main(void)
 	const Animal* i = new Cat();
 	delete j;
 	delete i;
-
-	std::cout << std::endl;
-
-	Animal dog_copy = *animals[2];
-	dog_copy.makeSound();
-	std::cout << dog_copy.getType() << std::endl;
 
 	std::cout << std::endl;
 
