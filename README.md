@@ -3,7 +3,7 @@
 <!-- PROJECT SHIELDS -->
 <br/>
 <p align="center">
-    <img src="https://github.com/chrisdelmoro/42cursus/blob/main/resources/repo/cppn.png" alt="Logo" width="150" height="150">
+    <img src="https://github.com/chrisdelmoro/42_cpp/blob/main/resources/repo/cppn.png" alt="Logo" width="150" height="150">
 
   <p align="center">
     Several exercise lists with the objective of learning C++.
